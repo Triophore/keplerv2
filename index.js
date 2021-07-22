@@ -54,7 +54,7 @@ var models_loaded = require('require-all')({
 const mongoose = require('mongoose');
 //const mongooseConnection = await mongoose.createConnection(process.env.MONGODB, { useNewUrlParser: true });
 
-await require('mongoose-schema-jsonschema')(mongoose);
+//await require('mongoose-schema-jsonschema')(mongoose);
 
 
 
@@ -65,10 +65,10 @@ mongoose_models = [];
  // mongoose_models[value.name] = mongoose.model(value.name, value.schema);
   value.alias = value.name;
   mongoose_models.push(value);
-  const Schema = mongoose.Schema;
-  const tempSchema = new Schema( value.schema);
-  const jsonSchema = tempSchema.jsonSchema();
-  model_def[value.name] = jsonSchema;
+  //const Schema = mongoose.Schema;
+  //const tempSchema = new Schema(value.schema);
+  //const jsonSchema = tempSchema.jsonSchema();
+  //model_def[value.name] = jsonSchema;
 });
 
 const fastify = require('fastify')({ logger: {
@@ -93,6 +93,8 @@ await fastify.register(
     if (err) throw err;
   }
 );
+
+await require('mongoose-schema-jsonschema')(fastify.mongoose.instance);
 
 
 
@@ -136,7 +138,7 @@ await fastify.register(require('fastify-swagger'), {
         { name: 'user', description: 'User related end-points' },
         { name: 'code', description: 'Code related end-points' }
       ],*/
-      definitions:model_def ,
+      //definitions:model_def ,
       securityDefinitions: {
         apiKey: {
           type: 'apiKey',
@@ -163,7 +165,7 @@ await fastify.register(require('fastify-swagger'), {
   });
   
 
-  //console.log(fastify.mongoose)
+console.log(fastify.mongoose.instance.models.user.schema.jsonSchema())
 
 fastify.get('/', async (request, reply) => {
 return { hello: 'world' }
