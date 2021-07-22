@@ -1,0 +1,37 @@
+{
+  "name": "keplerv2",
+  "version": "1.0.0",
+  "description": "Kepler  is web framework based on fastify (v1 based on hapijs)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Triophore/keplerv2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Triophore/keplerv2/issues"
+  },
+  "homepage": "https://github.com/Triophore/keplerv2#readme",
+  "dependencies": {
+    "@gquittet/graceful-server": "^2.5.1",
+    "chalk": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.19.2",
+    "fastify-blipp": "^3.1.0",
+    "fastify-cors": "^6.0.2",
+    "fastify-formbody": "^5.1.0",
+    "fastify-mongoose-api": "git+https://github.com/Triophore/fastify-mongoose-api.git",
+    "fastify-mongoose-driver": "^3.2.0",
+    "fastify-rate-limit": "^5.6.0",
+    "fastify-swagger": "^4.8.3",
+    "mongoose": "^5.13.3",
+    "mongoose-schema-jsonschema": "^1.4.7",
+    "pino-pretty": "^5.1.2",
+    "require-all": "^3.0.0"
+  }
+}
